@@ -1,0 +1,7 @@
+git init
+
+gh repo create
+
+bun init
+bun install
+bun run dev
