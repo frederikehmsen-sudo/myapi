@@ -1,24 +1,22 @@
 import {useRef, type FormEvent, useState, useEffect} from "react";
 
+export interface MyRegisterForm {
+    email: string;
+    password: string;
+}
+
 export function APITester() {
 
-    const [data, setData] = useState([])
-
-    useEffect(() => {
-        myOldFunction()
-    }, [])
-
-    async function myOldFunction() {
-        const result = await fetch('/api/hello');
-        const json = await result.json();
-        setData(json)
-    }
+    const [data, setData] = useState<MyRegisterForm>({
+        email: '',
+        password: ''
+    })
 
   return (
     <div className="api-tester">
-        {
-            JSON.stringify(data)
-        }
+        <input type ="email" value={data.email}/>
+        <input type="password" value={data.password}/>
+        <button>Send</button>
     </div>
   );
 }
